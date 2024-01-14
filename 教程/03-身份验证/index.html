@@ -1,0 +1,1664 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI_SaaS">
+      
+      
+        <meta name="author" content="Ean Yang">
+      
+      
+        <link rel="canonical" href="https://eanyang7.github.io/AI_SaaS/%E6%95%99%E7%A8%8B/03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/">
+      
+      
+        <link rel="prev" href="../02-%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AE%BE%E7%BD%AE/">
+      
+      
+        <link rel="next" href="../04-%E4%BE%A7%E8%BE%B9%E6%A0%8F/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>03 身份验证 - AI-SaaS 开发教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="AI-SaaS 开发教程" class="md-header__button md-logo" aria-label="AI-SaaS 开发教程" data-md-component="logo">
+      
+  <img src="../../assets/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI-SaaS 开发教程
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03 身份验证
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-purple"  aria-label="切换为暗黑模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换为暗黑模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="red"  aria-label="切换为浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换为浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EanYang7/AI_SaaS" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    github仓库
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI-SaaS 开发教程" class="md-nav__button md-logo" aria-label="AI-SaaS 开发教程" data-md-component="logo">
+      
+  <img src="../../assets/logo.jpg" alt="logo">
+
+    </a>
+    AI-SaaS 开发教程
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EanYang7/AI_SaaS" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    github仓库
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    教程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            教程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 环境设置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 文件夹设置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    03 身份验证
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    03 身份验证
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clerknextjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Clerk为Next.js应用程序添加身份验证和用户管理功能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用Clerk为Next.js应用程序添加身份验证和用户管理功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clerknextjs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装@clerk/nextjs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建项目
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置环境密钥
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clerkproviderapp" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用＜ClerkProvider/＞包装APP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app" class="md-nav__link">
+    <span class="md-ellipsis">
+      需要身份验证才能访问app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userbutton" class="md-nav__link">
+    <span class="md-ellipsis">
+      嵌入 &lt;UserButton /&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      注销应用程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clerknextjs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Clerk为Next.js应用程序构建自己的登录和注册页面
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用Clerk为Next.js应用程序构建自己的登录和注册页面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立注册页面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立登录页面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新环境变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问网站
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      调整布局
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      首页登录注册按钮
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clerk控制面板中的自定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      修改外观设置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      本地化中文
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E4%BE%A7%E8%BE%B9%E6%A0%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 侧边栏
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 控制面板
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E5%AF%B9%E8%AF%9DAI%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对话AI用户界面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E5%AF%B9%E8%AF%9DAI%20API%EF%BC%88Open%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对话AI API（Open AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90AI%EF%BC%88Open%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    代码生成AI（Open AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90AI%EF%BC%88Open%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图像生成AI（Open AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-%E9%9F%B3%E4%B9%90%E7%94%9F%E6%88%90AI%EF%BC%88Replicate%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    音乐生成AI（Replicate AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90AI%EF%BC%88Replicate%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    视频生成AI（Replicate AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-API%E9%99%90%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API限制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-API%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%A1%E6%95%B0%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API限制用户界面计数器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-%E4%B8%93%E4%B8%9A%E6%A8%A1%E5%BC%8F%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    专业模式用户界面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-Stripe%E9%9B%86%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stripe集成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E5%AE%A2%E6%88%B7%E6%94%AF%E6%8C%81%EF%BC%88Crisp%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    错误处理和客户支持（Crisp）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    登录页面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-%E9%83%A8%E7%BD%B2%E5%92%8C%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部署和总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clerknextjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Clerk为Next.js应用程序添加身份验证和用户管理功能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用Clerk为Next.js应用程序添加身份验证和用户管理功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clerknextjs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装@clerk/nextjs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建项目
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置环境密钥
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clerkproviderapp" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用＜ClerkProvider/＞包装APP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app" class="md-nav__link">
+    <span class="md-ellipsis">
+      需要身份验证才能访问app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userbutton" class="md-nav__link">
+    <span class="md-ellipsis">
+      嵌入 &lt;UserButton /&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      注销应用程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clerknextjs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Clerk为Next.js应用程序构建自己的登录和注册页面
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用Clerk为Next.js应用程序构建自己的登录和注册页面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立注册页面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立登录页面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新环境变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问网站
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      调整布局
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      首页登录注册按钮
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clerk控制面板中的自定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      修改外观设置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      本地化中文
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EanYang7/AI_SaaS/tree/main/docs/教程/03-身份验证.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EanYang7/AI_SaaS/tree/main/docs/教程/03-身份验证.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+<h1 id="03">03 身份验证<a class="headerlink" href="#03" title="Permanent link">⚓︎</a></h1>
+<p><a href="https://clerk.com/">Clerk | Authentication and User Management</a></p>
+<p>该节参考<a href="https://clerk.com/docs/quickstarts/nextjs">Add authentication and user management to your Next.js app with Clerk in 7 minutes | Clerk</a></p>
+<h2 id="clerknextjs">使用Clerk为Next.js应用程序添加身份验证和用户管理功能<a class="headerlink" href="#clerknextjs" title="Permanent link">⚓︎</a></h2>
+<h3 id="clerknextjs_1">安装@clerk/nextjs<a class="headerlink" href="#clerknextjs_1" title="Permanent link">⚓︎</a></h3>
+<p><a href="https://clerk.com/docs/quickstarts/nextjs">Add authentication and user management to your Next.js app with Clerk in 7 minutes | Clerk</a></p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>@clerk/nextjs
+</code></pre></div>
+<p>Clerk的Next.js SDK可以访问Next.js服务器组件、路由处理程序和中间件的预构建<a href="https://clerk.com/docs/components/overview">components</a>, <a href="https://clerk.com/docs/references/nextjs/overview#client-side-helpers">hooks</a>, 和 <a href="https://clerk.com/docs/references/nextjs/overview">helpers</a> 。</p>
+<h3 id="_1">创建项目<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h3>
+<p>使用谷歌账号注册后登录</p>
+<p>设置认证时需要的登录方式</p>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231109175755772.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231109175755772" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231109175755772.png" /></a> </p>
+<p>创建项目后得到一个API Key（公钥和私钥）</p>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231109180221944.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231109180221944" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231109180221944.png" /></a> </p>
+<h3 id="_2">设置环境密钥<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h3>
+<p>把上面生成的密钥复制到nextjs项目下的<code>.env</code>（新建）文件中</p>
+<blockquote>
+<p>可在<a href="https://dashboard.clerk.com/last-active?path=api-keys">Clerk Dashboard</a>查看密钥</p>
+<p>因为后面要使用<a href="https://www.prisma.io/">prisma</a>，所以使用<code>.env</code>而不是<code>.env.local</code></p>
+</blockquote>
+<details class="note">
+<summary>.env是什么?</summary>
+<p>.env是一个文件，用于存储环境变量，例如API密钥，数据库连接字符串等。环境变量是一些可以在不同的环境中改变的值，例如开发环境，测试环境，生产环境等。使用环境变量可以让你的代码更灵活，更安全，更易于维护。</p>
+<p>Next.js支持从.env.local文件中加载环境变量到process.env对象中，这样你就可以在Next.js的数据获取方法和API路由中使用它们。例如，你可以在.env.local文件中定义一个API密钥，然后在getStaticProps方法中使用它来调用一个外部的API。</p>
+<p>如果你想让你的环境变量在浏览器中也可用，你需要在变量名前加上NEXT_PUBLIC_的前缀。这样，Next.js会在构建时把这些变量内联到客户端的js包中，替换掉所有对process.env.[variable]的引用。例如，你可以在.env.local文件中定义一个NEXT_PUBLIC_ANALYTICS_ID变量，然后在你的代码中任何地方使用它。</p>
+</details>
+<details class="note">
+<summary><code>.env.local</code>也行</summary>
+<p>Next.js 项目中的 .env.local 和 .env 文件都是用来存储环境变量的，但是它们有一些区别：</p>
+<ul>
+<li><code>.env</code> 文件是用来设置所有环境（development, production, test）下的默认环境变量的，它应该被提交到源码仓库中。</li>
+<li><code>.env.local</code> 文件是用来覆盖 <code>.env</code> 文件中的默认环境变量的，它应该被添加到 <code>.gitignore</code> 中，因为它可能包含一些敏感信息，比如数据库密码。</li>
+<li><code>.env.local</code> 文件只在开发环境（next dev）和生产环境（next start）中生效，而不会在测试环境（next test）中生效。</li>
+</ul>
+</details>
+<details class="note">
+<summary>开发、生产、测试环境</summary>
+<p>开发环境、生产环境和测试环境是指运行 Next.js 项目的不同模式，它们有不同的目的和特点：</p>
+<ul>
+<li>开发环境（next dev）是用来在本地开发和调试 Next.js 项目的，它支持热重载、快速刷新和错误提示等功能，可以帮助你快速开发和修改代码。例如，你可以在终端中输入 <code>next dev</code> 命令来启动开发环境，然后在浏览器中访问 <code>http://localhost:3000</code> 来查看你的项目。</li>
+<li>生产环境（next start）是用来部署和运行 Next.js 项目的，它会对项目进行优化和打包，提高性能和安全性，适合用于正式上线的网站。例如，你可以在终端中输入 <code>next build</code> 命令来构建你的项目，然后输入 <code>next start</code> 命令来启动生产环境，然后在浏览器中访问你的域名来访问你的网站。</li>
+<li>测试环境（next test）是用来对 Next.js 项目进行单元测试或集成测试的，它可以检查你的代码是否符合预期的功能和逻辑，避免出现错误和bug。例如，你可以使用 jest 或 cypress 等工具来编写和运行测试用例，然后在终端中输入 <code>next test</code> 命令来启动测试环境，然后查看测试结果和报告。</li>
+</ul>
+</details>
+<h3 id="clerkproviderapp">使用<code>＜ClerkProvider/＞</code>包装APP<a class="headerlink" href="#clerkproviderapp" title="Permanent link">⚓︎</a></h3>
+<p><code>＜ClerkProvider＞</code>组件为Clerk的钩子和其他组件提供活动会话和用户上下文。</p>
+<div class="highlight"><span class="filename">/app/layout.tsx</span><pre><span></span><code>import type { Metadata } from &quot;next&quot;;
+import { Inter } from &quot;next/font/google&quot;;
+import &quot;./globals.css&quot;;
+import { ClerkProvider } from &quot;@clerk/nextjs&quot;;
+
+const inter = Inter({ subsets: [&quot;latin&quot;] });
+
+export const metadata: Metadata = {
+  title: &quot;Ean&quot;,
+  description: &quot;AI平台&quot;,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &lt;ClerkProvider&gt;
+      &lt;html lang=&quot;en&quot;&gt;
+        &lt;body className={inter.className}&gt;{children}&lt;/body&gt;
+      &lt;/html&gt;
+    &lt;/ClerkProvider&gt;
+  );
+}
+</code></pre></div>
+<p>使活动会话和用户上下文可以在app中的任何位置访问。</p>
+<h3 id="app">需要身份验证才能访问app<a class="headerlink" href="#app" title="Permanent link">⚓︎</a></h3>
+<p>Clerk已经安装在应用程序中，可以决定哪些页面是公共的，哪些页面需要身份验证才能访问。</p>
+<p>新建一个在 <code>middleware.ts</code> ，根目录上和<code>.env</code>一起</p>
+<div class="highlight"><span class="filename">middleware.ts</span><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">authMiddleware</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@clerk/nextjs&quot;</span><span class="p">;</span>
+
+<span class="c1">// 此示例保护所有路由，包括api/trpc路由</span>
+<span class="c1">// 请编辑此项以允许其他路由根据需要公开。</span>
+<span class="c1">// 查看https://clerk.com/docs/references/nextjs/auth-middleware有关配置中间件的详细信息</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">authMiddleware</span><span class="p">({});</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">matcher</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;/((?!.+\\.[\\w]+$|_next).*)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/(api|trpc)(.*)&#39;</span><span class="p">],</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>现在可以通过http://localhost:3000 来访问应用程序。</p>
+<p>中间件会将您重定向到由Clerk的 <a href="https://clerk.com/docs/account-portal/overview">Account Portal</a>功能提供的注册页面。如果您想公开其他路由，请查看<a href="https://clerk.com/docs/references/nextjs/auth-middleware">authMiddleware参考页</a>。</p>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231109220754115.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231109220754115" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231109220754115.png" /></a></p>
+<p>注册登陆后会跳转到首页</p>
+<details class="note">
+<summary>Middleware中间件</summary>
+<p>https://nextjs.org/docs/pages/building-your-application/routing/middleware</p>
+<p>middleware.ts 是 Next.js 项目中用来定义中间件的文件，中间件可以让你在请求完成之前运行一些代码，比如重写、重定向、修改请求或响应头，或者直接响。中间件的文件名必须是 middleware.ts（或 .js），并且放在项目的根目录下，和 pages 或 app 同级。
+可以通过 config 对象来指定中间件匹配的路径，使用正则表达式或命名参数。例如，下面的中间件只会匹配 /about 路径下的请求：</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">matcher</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/about/:path*&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<h3 id="userbutton">嵌入 <code>&lt;UserButton /&gt;</code><a class="headerlink" href="#userbutton" title="Permanent link">⚓︎</a></h3>
+<p>Clerk提供了一套<a href="https://clerk.com/docs/components/overview">预构建的组件</a>，可以最大限度地为应用程序添加功能。 <a href="https://clerk.com/docs/components/user/user-button"><code>&lt;UserButton /&gt;</code></a> 允许用户管理其帐户信息和注销，完成完整的身份验证周期。</p>
+<p>在应用程序的<code>&lt;ClerkProvider/&gt;</code>中任何地方都可以添加它。</p>
+<p><code>afterSignOutUrl</code>属性设置自定义用户注销后将重定向到的页面。</p>
+<blockquote>
+<p>可以放在登录后的控制面板中</p>
+</blockquote>
+<div class="highlight"><span class="filename">app/(dashboard)/(routes)/dashboard/page.tsx</span><pre><span></span><code>import { UserButton } from &quot;@clerk/nextjs&quot;;
+
+const DashboardPage = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;控制面板（受保护）&lt;/p&gt;
+      &lt;UserButton afterSignOutUrl=&quot;/&quot; /&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default DashboardPage;
+</code></pre></div>
+<h3 id="_3">注销应用程序<a class="headerlink" href="#_3" title="Permanent link">⚓︎</a></h3>
+<p>测试一下退出后回到的页面</p>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231226234432821.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231226234432821" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231226234432821.png" /></a></p>
+<h2 id="clerknextjs_2">使用Clerk为Next.js应用程序构建自己的登录和注册页面<a class="headerlink" href="#clerknextjs_2" title="Permanent link">⚓︎</a></h2>
+<p>Clerk提供了一套<a href="https://clerk.com/docs/components/overview">预构建的组件</a>和<a href="https://clerk.com/docs/custom-flows/overview">自定义流程</a>，可以将它们用于将登录、注册和其他用户管理功能嵌入到Next.js应用程序中。</p>
+<p>将<a href="https://clerk.com/docs/components/authentication/sign-in"><SignIn/></a>和<a href="https://clerk.com/docs/components/authentication/sign-up"><SignUp/></a>组件与Next.js可选的<a href="https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes#catch-all-segments">catch-all路由</a>一起使用。</p>
+<h3 id="_4">建立注册页面<a class="headerlink" href="#_4" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><span class="filename">app/(auth)/(routes)/sign-up/[[...sign-up]]/page.tsx</span><pre><span></span><code>import { SignUp } from &quot;@clerk/nextjs&quot;;
+
+export default function Page() {
+  return &lt;SignUp /&gt;;
+}
+</code></pre></div>
+<details class="note">
+<summary><code>[[...sign-up]]</code></summary>
+<p>在 Next.js 中，<code>[[...]]</code> 用于文件名是用来表示动态路由的一种特殊语法。Next.js 的路由是基于页面文件系统的，当你在 <code>pages</code> 目录下创建文件时，这个文件的路径就对应于一个路由。</p>
+<p>这里的 <code>[[...sign-up]]</code> 表示一个“捕获所有路由”的动态路由。具体来说：</p>
+<ul>
+<li><code>[]</code> 表示该部分是动态的。例如，<code>pages/[username].tsx</code> 会匹配 <code>/alice</code> 或 <code>/bob</code>，其中 <code>username</code> 是动态变化的部分。</li>
+<li><code>...</code> 是一个展开运算符，用在动态路由中表示它可以捕获所有包含零个或多个路由段的路径。</li>
+<li><code>[[...]]</code> 双括号表示这个动态路由是可选的。也就是说，如果你有一个 <code>pages/post/[[...slug]].tsx</code> 文件，它既可以匹配 <code>/post</code>，也可以匹配更深的路径，如 <code>/post/2023/03/30</code>。</li>
+</ul>
+<p>所以，<code>pages/[[...sign-up]].tsx</code> 会匹配任何以 <code>/</code> 开始，并在 <code>/sign-up</code> 后面有任何内容（或没有内容）的路由。这对于创建具有多个子路径的页面非常有用，但是你又不想为每个子路径单独创建一个页面文件。</p>
+<p>例如：</p>
+<ul>
+<li>访问 <code>/</code> 可以被该路由捕获。</li>
+<li>访问 <code>/sign-up</code> 也可以被该路由捕获。</li>
+<li>访问 <code>/sign-up/extra/info</code> 同样可以被该路由捕获。</li>
+</ul>
+<p>在页面组件中，你可以通过 Next.js 的 <code>useRouter</code> 钩子获取动态路径段的值。</p>
+</details>
+<h3 id="_5">建立登录页面<a class="headerlink" href="#_5" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><span class="filename">app/(auth)/(routes)/sign-up/[[...sign-in]]/page.tsx</span><pre><span></span><code>import { SignIn } from &quot;@clerk/nextjs&quot;;
+
+export default function Page() {
+  return &lt;SignIn /&gt;;
+}
+</code></pre></div>
+<blockquote>
+<p>文件结构</p>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110000657549.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231110000657549" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110000657549.png" /></a> </p>
+</blockquote>
+<h3 id="_6">更新环境变量<a class="headerlink" href="#_6" title="Permanent link">⚓︎</a></h3>
+<p>为<code>signIn</code>、<code>signUp</code>、<code>afterSignUp</code>和<code>afterSignIn</code>路径添加环境变量：</p>
+<div class="highlight"><span class="filename">.env</span><pre><span></span><code>NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+</code></pre></div>
+<p>当登录或注册时，以及当单击每个组件底部的相应链接时，这些值控制组件的行为。</p>
+<h3 id="_7">访问网站<a class="headerlink" href="#_7" title="Permanent link">⚓︎</a></h3>
+<p><a href="http://localhost:3000/sign-in">localhost:3000/sign-in</a>  和 <a href="http://localhost:3000/sign-up">localhost:3000/sign-up</a>.</p>
+<p>以及登陆后进入到dashboard</p>
+<blockquote>
+<p>由于有中间件的存在，访问<code>localhost:3000/</code>下的任何路由都会出现登录框。包括<code>localhost:3000/</code></p>
+<p>所以可以设置公共的路由 <code>publicRoutes</code>来去除掉某些网址</p>
+<div class="highlight"><span class="filename">middleware.ts</span><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">authMiddleware</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@clerk/nextjs&quot;</span><span class="p">;</span>
+
+<span class="c1">// This example protects all routes including api/trpc routes</span>
+<span class="c1">// Please edit this to allow other routes to be public as needed.</span>
+<span class="c1">// See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">authMiddleware</span><span class="p">({</span><span class="w"> </span><span class="nx">publicRoutes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">});</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">matcher</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/((?!.+\\.[\\w]+$|_next).*)&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/(api|trpc)(.*)&quot;</span><span class="p">],</span>
+<span class="p">};</span>
+</code></pre></div>
+</blockquote>
+<h2 id="_8">补充<a class="headerlink" href="#_8" title="Permanent link">⚓︎</a></h2>
+<h3 id="_9">调整布局<a class="headerlink" href="#_9" title="Permanent link">⚓︎</a></h3>
+<p><strong>调整前：</strong></p>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110004023339.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231110004023339" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110004023339.png" /></a> </p>
+<div class="highlight"><span class="filename">app/(auth)/layout.tsx</span><pre><span></span><code>const AuthLayout = ({ children }: { children: React.ReactNode }) =&gt; {
+  return (
+    &lt;div className=&quot;flex items-center justify-center h-full &quot;&gt;{children}&lt;/div&gt;
+  );
+};
+
+export default AuthLayout;
+</code></pre></div>
+<details class="note">
+<summary>代码解释</summary>
+<p>这段代码定义了一个名为 <code>AuthLayout</code> 的 React 函数组件，它是一个布局组件，用于包裹传递给它的子组件。在这个 <code>AuthLayout</code> 组件中，<code>children</code> 是一个特殊的 prop，表示那些嵌套在组件内部的 JSX 元素。</p>
+<p>让我们一步步分析这段代码：</p>
+<ol>
+<li>
+<p><code>const AuthLayout = ({ children }: { children: React.ReactNode }) =&gt; { ... };</code>
+   这一行定义了一个常量 <code>AuthLayout</code>，它是一个箭头函数组件。这个组件接收一个对象作为参数，该对象包含一个 <code>children</code> 属性，类型为 <code>React.ReactNode</code>。<code>React.ReactNode</code> 是 React 类型定义的一部分，它可以是任何可渲染的 React 内容，包括 <code>null</code>、<code>boolean</code>、<code>number</code>、<code>string</code>、<code>ReactElement</code> 或这些类型的数组。</p>
+</li>
+<li>
+<p><code>&lt;div className="flex items-center justify-center h-full "&gt;{children}&lt;/div&gt;</code>
+   这里返回了一个 <code>div</code> 元素，它的类名设置了一些 Tailwind CSS 的工具类：</p>
+<ul>
+<li><code>flex</code>: 应用了 Flexbox 布局，使得 <code>div</code> 的子元素可以使用 Flexbox 布局属性。</li>
+<li><code>items-center</code>: 用来在垂直方向上将子元素居中对齐。</li>
+<li><code>justify-center</code>: 在水平方向上将子元素居中对齐。</li>
+<li><code>h-full</code>: 设置 <code>div</code> 的高度为父元素的高度。</li>
+</ul>
+</li>
+</ol>
+<p>这个 <code>div</code> 使用了 Flexbox 居中布局，确保任何作为 <code>children</code> 传递给 <code>AuthLayout</code> 的内容都会在页面上水平和垂直居中显示。</p>
+<ol>
+<li>
+<p><code>{children}</code>
+   这是 JSX 中的表达式，用大括号包裹。这里它表示 <code>AuthLayout</code> 组件的子元素。这样，任何放在 <code>&lt;AuthLayout&gt;...&lt;/AuthLayout&gt;</code> 标签中的内容都会被渲染到这个 <code>div</code> 中的相应位置。</p>
+</li>
+<li>
+<p><code>export default AuthLayout;</code>
+   最后这行代码将 <code>AuthLayout</code> 组件作为默认导出。这意味着在其他文件中可以不用花括号直接导入这个布局组件。</p>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>原理:layout.tsx作用于<code>(auth)</code>下的所有页面</summary>
+<p>在 Next.js 中，如果你看到 <code>app/(auth)/(routes)</code> 这样的路径，并且这个路径下的页面都采用了 <code>app/(auth)/layout.tsx</code> 的布局，这是因为 Next.js 的路由系统提供了一种机制，可以让你为特定的路由群组指定共用的布局组件。</p>
+<p>这里的原理是：</p>
+<p><strong>布局继承</strong>：</p>
+<ul>
+<li>
+<p><code>app/(auth)/layout.tsx</code> 作为 <code>app/(auth)/</code> 路径下所有页面的默认布局。</p>
+</li>
+<li>
+<p>如果存在嵌套的路由路径，如 <code>app/(auth)/(routes)/</code>，且没有为 <code>(routes)</code> 指定专属的布局组件，则 <code>(routes)</code> 下的页面将继承其父路由 <code>(auth)</code> 的布局组件。</p>
+</li>
+</ul>
+<p><strong>目录结构与路由匹配</strong>：</p>
+<ul>
+<li>
+<p>Next.js 会根据 <code>app</code> 目录下的文件结构自动建立路由。</p>
+</li>
+<li>
+<p>路由的嵌套层级决定了页面如何继承布局。因此，<code>app/(auth)/(routes)</code> 下的页面会继承 <code>app/(auth)/layout.tsx</code> 的布局，除非你在 <code>(routes)</code> 目录下指定了一个不同的布局组件。</p>
+</li>
+</ul>
+<p><strong>自动页面组装</strong>：</p>
+<ul>
+<li>
+<p>当构建应用时，Next.js 会查看你的 <code>app</code> 目录并自动把页面、布局和其他组件组装起来。</p>
+</li>
+<li>
+<p><font color="red">布局组件相当于页面的一个父组件，当渲染页面时，页面将作为布局组件的子组件插入</font>。</p>
+</li>
+</ul>
+<p>通过这种方式，Next.js 允许开发者创建复杂的布局继承结构，使得布局的管理变得更加模块化和灵活。这种方法非常适合大型应用，其中某些页面部分可能需要共享同样的基础布局，而其他部分则需要有所不同。</p>
+</details>
+<p>必须用layout.tsx，不能改名，否则不起作用</p>
+<details class="note">
+<summary>命名规范</summary>
+<p>在 Next.js 的 <code>app</code> 目录结构中，特定的命名约定确实对文件和组件的行为有影响。例如，布局组件通常被命名为 <code>layout.tsx</code> 是因为这是 Next.js 的默认行为，它会自动将这个组件作为其子目录中页面的布局。</p>
+<p>如果你将 <code>layout.tsx</code> 改名为其他名称，这个自动应用布局的行为将不再适用。Next.js 不会自动识别一个不遵循命名约定的文件作为布局文件。然而，这并不意味着你不能使用一个不同名字的布局组件，只是你需要手动指定页面应当使用哪个布局组件。</p>
+<p>例如，如果你将 <code>layout.tsx</code> 重命名为 <code>CustomLayout.tsx</code>，你需要在每个页面组件中显式地导入并使用这个布局组件：</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">CustomLayout</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./CustomLayout&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">Page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">CustomLayout</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">{</span><span class="cm">/* 页面内容 */</span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">CustomLayout</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Page</span><span class="p">;</span>
+</code></pre></div>
+<p>这样做，你就可以使用任何名字的布局组件，但需要牢记的是，不再有自动应用布局的便利性，需要在每个页面组件中都做这样的导入和布局应用。这种方式提供了更高的自由度和灵活性，但也增加了维护成本，尤其是在大型项目中，每个页面都需要明确指定布局组件。</p>
+</details>
+<p><strong>调整后：</strong></p>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110004028065.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231110004028065" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110004028065.png" /></a></p>
+<h3 id="_10">首页登录注册按钮<a class="headerlink" href="#_10" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><span class="filename">app/(landing)/page.tsx</span><pre><span></span><code>import { Button } from &quot;@/components/ui/button&quot;;
+import { UserButton } from &quot;@clerk/nextjs&quot;;
+import Link from &quot;next/link&quot;;
+
+export default function Home() {
+  return (
+    &lt;div&gt;
+      &lt;div&gt;首页&lt;/div&gt;
+      &lt;Link href=&quot;/sign-in&quot;&gt;
+        &lt;Button&gt;登录&lt;/Button&gt;{&quot; &quot;}
+      &lt;/Link&gt;
+      &lt;Link href=&quot;/sign-up&quot;&gt;
+        &lt;Button&gt;注册&lt;/Button&gt;{&quot; &quot;}
+      &lt;/Link&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div>
+<h3 id="clerk">Clerk控制面板中的自定义<a class="headerlink" href="#clerk" title="Permanent link">⚓︎</a></h3>
+<p><a class="glightbox" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110011411590.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231110011411590" src="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81.assets/image-20231110011411590.png" /></a></p>
+<h3 id="_11">修改外观设置<a class="headerlink" href="#_11" title="Permanent link">⚓︎</a></h3>
+<p><a href="https://clerk.com/docs/components/customization/overview">Appearance prop | Clerk</a></p>
+<h3 id="_12">本地化中文<a class="headerlink" href="#_12" title="Permanent link">⚓︎</a></h3>
+<p><a href="https://clerk.com/docs/components/customization/localization">Localization prop (Experimental) | Clerk</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 14, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 14, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../02-%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AE%BE%E7%BD%AE/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 02 文件夹设置">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                02 文件夹设置
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04-%E4%BE%A7%E8%BE%B9%E6%A0%8F/" class="md-footer__link md-footer__link--next" aria-label="下一页: 04 侧边栏">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                04 侧边栏
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Ean Yang
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/YQisme" target="_blank" rel="noopener" title="github主页" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://space.bilibili.com/244185393?spm_id_from=333.788.0.0" target="_blank" rel="noopener" title="b站主页" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://eanyang7.com" target="_blank" rel="noopener" title="个人主页" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1-96 0zm40 304v128c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9l-28.6 47.6c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l58.3 97c9.1 15.1 4.2 34.8-10.9 43.9s-34.8 4.2-43.9-10.9L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352h-16z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.prune", "navigation.top", "toc.follow", "header.autohide", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

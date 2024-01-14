@@ -1,0 +1,1397 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI_SaaS">
+      
+      
+        <meta name="author" content="Ean Yang">
+      
+      
+        <link rel="canonical" href="https://eanyang7.github.io/AI_SaaS/%E6%95%99%E7%A8%8B/04-%E4%BE%A7%E8%BE%B9%E6%A0%8F/">
+      
+      
+        <link rel="prev" href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/">
+      
+      
+        <link rel="next" href="../05-%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>04 侧边栏 - AI-SaaS 开发教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#04" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="AI-SaaS 开发教程" class="md-header__button md-logo" aria-label="AI-SaaS 开发教程" data-md-component="logo">
+      
+  <img src="../../assets/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI-SaaS 开发教程
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              04 侧边栏
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-purple"  aria-label="切换为暗黑模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换为暗黑模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="red"  aria-label="切换为浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换为浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EanYang7/AI_SaaS" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    github仓库
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI-SaaS 开发教程" class="md-nav__button md-logo" aria-label="AI-SaaS 开发教程" data-md-component="logo">
+      
+  <img src="../../assets/logo.jpg" alt="logo">
+
+    </a>
+    AI-SaaS 开发教程
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EanYang7/AI_SaaS" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    github仓库
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    教程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            教程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 环境设置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 文件夹设置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 身份验证
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    04 侧边栏
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    04 侧边栏
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      效果展示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实现
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      layout组件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidebar" class="md-nav__link">
+    <span class="md-ellipsis">
+      sidebar组件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      navbar组件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-sidebar" class="md-nav__link">
+    <span class="md-ellipsis">
+      mobile-sidebar组件
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 控制面板
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E5%AF%B9%E8%AF%9DAI%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对话AI用户界面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E5%AF%B9%E8%AF%9DAI%20API%EF%BC%88Open%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对话AI API（Open AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90AI%EF%BC%88Open%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    代码生成AI（Open AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90AI%EF%BC%88Open%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图像生成AI（Open AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-%E9%9F%B3%E4%B9%90%E7%94%9F%E6%88%90AI%EF%BC%88Replicate%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    音乐生成AI（Replicate AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90AI%EF%BC%88Replicate%20AI%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    视频生成AI（Replicate AI）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-API%E9%99%90%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API限制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-API%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%A1%E6%95%B0%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API限制用户界面计数器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-%E4%B8%93%E4%B8%9A%E6%A8%A1%E5%BC%8F%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    专业模式用户界面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-Stripe%E9%9B%86%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stripe集成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E5%AE%A2%E6%88%B7%E6%94%AF%E6%8C%81%EF%BC%88Crisp%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    错误处理和客户支持（Crisp）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    登录页面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-%E9%83%A8%E7%BD%B2%E5%92%8C%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部署和总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      效果展示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实现
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      layout组件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidebar" class="md-nav__link">
+    <span class="md-ellipsis">
+      sidebar组件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      navbar组件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-sidebar" class="md-nav__link">
+    <span class="md-ellipsis">
+      mobile-sidebar组件
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EanYang7/AI_SaaS/tree/main/docs/教程/04-侧边栏.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EanYang7/AI_SaaS/tree/main/docs/教程/04-侧边栏.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+<h1 id="04">04 侧边栏<a class="headerlink" href="#04" title="Permanent link">⚓︎</a></h1>
+<h2 id="_1">效果展示<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h2>
+<p><a class="glightbox" href="../04-%E4%BE%A7%E8%BE%B9%E6%A0%8F.assets/video1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="video1" src="../04-%E4%BE%A7%E8%BE%B9%E6%A0%8F.assets/video1.gif" /></a></p>
+<h2 id="_2">实现<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
+<p>创建了4个组件</p>
+<p>dashboard的<code>layout</code>组件中嵌套了<code>sidebar</code>和<code>navbar</code>组件，<code>navbar</code>组件中嵌套<code>mobile-sidebar</code>组件（适配手机移动端）</p>
+<h2 id="layout">layout组件<a class="headerlink" href="#layout" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><span class="filename">app/(dashboard)/layout.tsx</span><pre><span></span><code>import Navbar from &quot;@/components/navbar&quot;;
+import Sidebar from &quot;@/components/sidebar&quot;;
+
+const DashboardLayout = ({ children }: { children: React.ReactNode }) =&gt; {
+  return (
+    &lt;div className=&quot;flex relative w-full h-full&quot;&gt;
+      {/* 这个元素在小屏幕上隐藏，在中等及更大尺寸屏幕上显示为flex布局 */}
+      &lt;div className=&quot;hidden md:flex md:w-72 h-full bg-gray-900&quot;&gt;
+        &lt;Sidebar /&gt;
+      &lt;/div&gt;
+      &lt;main className=&quot;flex-1&quot;&gt;
+        &lt;Navbar /&gt;
+        {children}
+      &lt;/main&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default DashboardLayout;
+</code></pre></div>
+<p>创建了一个响应式布局，在小屏幕上隐藏侧边栏，在更大的屏幕上与主内容一起显示，主内容向右移动以为侧边栏腾出空间。</p>
+<p>1.<strong>最外层 <code>div</code>，<code>className="flex relative w-full h-full"</code></strong>：</p>
+<ul>
+<li>这个容器被设置为一个 flex 容器（<code>flex</code>），它的定位是相对的（<code>relative</code>），宽度和高度都是填满父容器（<code>w-full h-full</code>）。</li>
+<li><code>relative</code>：这应用了 CSS 属性 <code>position: relative;</code>。它允许您相对于此 div 定位子元素（如侧边栏和主内容）。在容器内使用绝对或固定定位时，这是必需的。</li>
+</ul>
+<p>2.<strong>侧边栏 <code>div</code>，<code>className="hidden md:flex md:w-72 md:fixed h-full bg-gray-900"</code></strong>：</p>
+<ul>
+<li>
+<p><code>hidden</code>：默认情况下，侧边栏是隐藏的（display: none;）。这可能是为了在较小的屏幕上节省空间，因为侧边栏可能会占用太多空间。</p>
+</li>
+<li>
+<p><code>md:flex</code>：在中等尺寸屏幕（<code>md:</code> 断点在 Tailwind 中）上，将显示方式更改为 <code>flex</code>，使侧边栏可见，并允许其子元素灵活布局。</p>
+</li>
+<li>
+<blockquote>
+<p><code>hidden</code>和<code>md:flex</code>是用来实现响应式设计。这两个类共同作用，用于控制元素在不同屏幕尺寸下的显示方式。</p>
+</blockquote>
+</li>
+<li>
+<p><code>md:w-72</code>：同样从 <code>md:</code> 断点开始，这将侧边栏的宽度设置为固定大小（72 单位，通常是 72 x 4 = 288px）。</p>
+</li>
+<li>
+<p><code>h-full</code>：将侧边栏的高度设置为其父元素（最外层的 <code>div</code>）的 100%，确保它从顶部延伸到底部。</p>
+</li>
+<li>
+<p><code>bg-gray-900</code>：为侧边栏应用深灰色背景颜色（使用 Tailwind 的颜色命名系统）。</p>
+</li>
+</ul>
+<p>3.<strong>主内容区域，<code>className="flex-1"</code></strong>：</p>
+<ul>
+<li><code>flex-1</code>: 这使得主内容区域能够占据剩余空间。在一个 flex 容器中，<code>flex-1</code> 表示元素会伸展以填满除其他 flex 元素外的空间。</li>
+</ul>
+<details class="note">
+<summary>md是什么？</summary>
+<p>在使用 Tailwind CSS 这种实用性框架时，<code>md</code> 是一个断点（breakpoint）的缩写，代表“medium”（中等）尺寸的屏幕。断点是响应式设计中用于定义不同屏幕尺寸范围的媒体查询标准。每个断点对应于一组屏幕宽度，当屏幕宽度在这个范围内时，相关的样式规则将被应用。</p>
+<p>在 Tailwind CSS 中，默认的断点包括：</p>
+<ul>
+<li><code>sm</code>（small）：小屏幕。</li>
+<li><code>md</code>（medium）：中等屏幕。</li>
+<li><code>lg</code>（large）：大屏幕。</li>
+<li><code>xl</code>（extra large）：更大屏幕。</li>
+<li><code>2xl</code>（2x large）：非常大的屏幕。</li>
+</ul>
+<p>例如，如果一个类名前加上 <code>md:</code> 前缀（如 <code>md:flex</code>），这意味着这个样式仅在屏幕宽度达到 <code>md</code> 断点定义的最小宽度时才会生效。这允许开发者根据不同的屏幕尺寸定制布局和样式，从而实现响应式设计。</p>
+</details>
+<h2 id="sidebar">sidebar组件<a class="headerlink" href="#sidebar" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><span class="filename">components/sidebar.tsx</span><pre><span></span><code>&quot;use client&quot;;
+import {
+  Code,
+  ImageIcon,
+  LayoutDashboard,
+  MessageSquare,
+  Music,
+  Settings,
+  VideoIcon,
+} from &quot;lucide-react&quot;;
+import { usePathname } from &quot;next/navigation&quot;;
+import Image from &quot;next/image&quot;;
+import Link from &quot;next/link&quot;;
+
+const routes = [
+  {
+    label: &quot;控制面板&quot;,
+    icon: LayoutDashboard,
+    href: &quot;/dashboard&quot;,
+    color: &quot;text-sky-500&quot;,
+  },
+  {
+    label: &quot;进行对话&quot;,
+    icon: MessageSquare,
+    href: &quot;/conversation&quot;,
+    color: &quot;text-violet-500&quot;,
+  },
+  {
+    label: &quot;生成图片&quot;,
+    icon: ImageIcon,
+    color: &quot;text-pink-700&quot;,
+    href: &quot;/image&quot;,
+  },
+  {
+    label: &quot;生成视频&quot;,
+    icon: VideoIcon,
+    color: &quot;text-orange-700&quot;,
+    href: &quot;/video&quot;,
+  },
+  {
+    label: &quot;生成音乐&quot;,
+    icon: Music,
+    color: &quot;text-emerald-500&quot;,
+    href: &quot;/music&quot;,
+  },
+  {
+    label: &quot;生成代码&quot;,
+    icon: Code,
+    color: &quot;text-green-700&quot;,
+    href: &quot;/code&quot;,
+  },
+  {
+    label: &quot;设置中心&quot;,
+    icon: Settings,
+    href: &quot;/settings&quot;,
+  },
+];
+
+const Sidebar = () =&gt; {
+  const pathname = usePathname();
+  return (
+    &lt;div className=&quot;w-full h-full relative&quot;&gt;
+      &lt;div className=&quot;flex justify-center items-center w-full text-white pt-7&quot;&gt;
+        &lt;Link href={&quot;/&quot;} className=&quot;flex &quot;&gt;
+          &lt;Image src=&quot;/logo.jpg&quot; alt=&quot;logo&quot; width={36} height={36} /&gt;
+          &lt;h1 className=&quot;p-1 pl-3 font-bold&quot;&gt;AI SaaS平台&lt;/h1&gt;
+        &lt;/Link&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;flex-col text-white&quot;&gt;
+        {routes.map((route) =&gt; (
+          &lt;Link
+            key={route.href}
+            href={route.href}
+            className={`flex items-center  mx-7 mt-4 p-1 cursor-pointer hover:text-blue-300 hover:bg-white/10 rounded-lg transition hover:scale-110 ${
+              pathname === route.href
+                ? &quot;text-white bg-white/10&quot;
+                : &quot;text-zinc-500&quot;
+            }`}
+          &gt;
+            &lt;div className=&quot;flex&quot;&gt;
+              &lt;route.icon className={`mr-1 ${route.color}`} /&gt;
+              {route.label}
+            &lt;/div&gt;
+          &lt;/Link&gt;
+        ))}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default Sidebar;
+</code></pre></div>
+<p>1.<strong>使用 Next.js 的 <code>Link</code> 组件</strong>：</p>
+<ul>
+<li><code>Link</code> 用于创建无需页面重新加载的导航链接，这对于提升用户体验和应用性能非常重要。这在单页应用（SPA）中尤为常见。</li>
+</ul>
+<p>2.<strong>引入和使用图标</strong>：</p>
+<ul>
+<li>通过 <code>lucide-react</code> 导入的图标（如 <code>LayoutDashboard</code>, <code>MessageSquare</code> 等），在侧边栏的每个导航项中作为图标显示。这些图标通过 <code>icon</code> 属性动态引用。</li>
+</ul>
+<p>3.<strong>动态路由数组 <code>routes</code></strong>：</p>
+<ul>
+<li><code>routes</code> 数组定义了侧边栏的各个导航项。每个对象包含 <code>label</code>, <code>icon</code>, <code>href</code>, 和 <code>color</code> 属性，分别表示链接的文本标签、图标组件、导航路径和图标颜色。</li>
+</ul>
+<p>4.<strong>迭代渲染导航项</strong>：</p>
+<ul>
+<li>使用 <code>map</code> 函数遍历 <code>routes</code> 数组，为每个路由动态创建一个包含图标和标签的链接。这种模式在 React 中用于基于数组数据渲染列表或组件集合。</li>
+</ul>
+<p>5.<strong>使用 Tailwind CSS 进行样式设置</strong>：</p>
+<ul>
+<li>通过类似 <code>flex</code>, <code>justify-center</code>, <code>items-center</code> 等类，使用 Tailwind CSS 实现了侧边栏的布局和样式。Tailwind 提供了一种快速、响应式的方式来定义样式。</li>
+</ul>
+<p>6.<strong>顶部 Logo 和标题部分</strong>：</p>
+<ul>
+<li>使用 <code>Image</code> 组件（来自 Next.js）加载和显示 logo。这里的 <code>Image</code> 组件用于优化图像加载。</li>
+<li>Logo 和标题被包裹在一个 <code>Link</code> 组件中，点击可以导航到应用的首页。</li>
+</ul>
+<p>7.<strong>响应式和交互式 UI 设计</strong>：</p>
+<ul>
+<li>通过类似 <code>hover:text-blue-300</code>, <code>hover:bg-white/10</code>, <code>rounded-lg</code>, <code>transition</code>, <code>hover:scale-110</code> 等类，实现了鼠标悬浮时的视觉效果，增强了用户交互体验。</li>
+</ul>
+<details class="note">
+<summary>详解hover</summary>
+<p>这些类都来自 Tailwind CSS，是一套实用程序优先的 CSS 框架，用于快速开发和响应式设计。每个类代表一个特定的样式或效果：</p>
+<ol>
+<li>
+<p><strong><code>cursor-pointer</code></strong>:</p>
+<ul>
+<li>这个类设置元素的鼠标光标为指针（通常是手形），通常用于指示可点击的元素，类似于链接或按钮。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>hover:text-blue-300</code></strong>:</p>
+<ul>
+<li>这个类表示当鼠标悬停在元素上时，元素的文本颜色变为蓝色。这用于增加交互性，提供视觉反馈。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>hover:bg-white/10</code></strong>:</p>
+<ul>
+<li>这个类在鼠标悬停时改变元素的背景颜色。这里使用的是带透明度的白色（<code>white/10</code> 指的是白色，透明度为 10%）。这也是一种常见的交互反馈方式。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>rounded-lg</code></strong>:</p>
+<ul>
+<li>这个类为元素添加较大的圆角边框（<code>lg</code> 代表 large）。这是一种常见的 UI 设计方法，使元素看起来更加友好和现代。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>transition</code></strong>:</p>
+<ul>
+<li>这个类应用了 CSS 过渡效果，使得样式的变化（如颜色、背景、尺寸等）更平滑。当结合其他如 <code>hover:</code> 类使用时，可以创建更优雅的交互体验。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>hover:scale-110</code></strong>:</p>
+<ul>
+<li>这个类表示当鼠标悬停在元素上时，元素会放大到原始尺寸的 110%。这通过 CSS 的 <code>transform: scale(1.10)</code> 实现。这种效果可以吸引用户注意到特定的交互元素。</li>
+</ul>
+</li>
+</ol>
+</details>
+<p>8.<strong>动态类名</strong></p>
+<p>这段代码使用了多个动态类名</p>
+<div class="highlight"><pre><span></span><code>import { usePathname } from &quot;next/navigation&quot;;
+
+    const pathname = usePathname();
+    &lt;div className=&quot;flex-col text-white&quot;&gt;
+        {routes.map((route) =&gt; (
+          &lt;Link
+            key={route.href}
+            href={route.href}
+            className={`flex items-center  mx-7 mt-4 p-1 cursor-pointer hover:text-blue-300 hover:bg-white/10 rounded-lg transition hover:scale-110 ${
+              pathname === route.href
+                ? &quot;text-white bg-white/10&quot;
+                : &quot;text-zinc-500&quot;
+            }`}
+          &gt;
+            &lt;div className=&quot;flex&quot;&gt;
+              &lt;route.icon className={`mr-1 ${route.color}`} /&gt;
+              {route.label}
+            &lt;/div&gt;
+          &lt;/Link&gt;
+</code></pre></div>
+<details class="note">
+<summary>静态类名+动态类名 详细解释</summary>
+<p>要结合静态类名和基于条件的动态类名，你可以在同一个 <code>className</code> 属性中使用模板字符串。模板字符串允许你在一个字符串中混合使用静态文本和动态表达式。</p>
+<p>以下是如何实现它的例子：</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;flex&quot;</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">&lt;</span><span class="nt">route</span><span class="p">.</span><span class="na">icon</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`static-class-name </span><span class="si">${</span><span class="nx">pathname</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">route</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;text-white bg-white/10&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;text-zinc-400&#39;</span><span class="si">}</span><span class="sb">`</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">  </span><span class="p">{</span><span class="nx">route</span><span class="p">.</span><span class="nx">label</span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>在这个例子中：</p>
+<ul>
+<li><code>static-class-name</code> 是始终会被应用的静态类名。</li>
+<li><code>pathname === route.href ? 'text-white bg-white/10' : 'text-zinc-400'</code> 是基于条件的动态表达式。如果条件为真（<code>pathname</code> 与 <code>route.href</code> 相等），则使用 <code>'text-white bg-white/10'</code> 作为类名；如果条件为假，则使用 <code>'text-zinc-400'</code>。</li>
+</ul>
+<p>通过这种方式，你可以灵活地结合使用静态和动态类名，以适应不同的样式需求。</p>
+</details>
+<h2 id="navbar">navbar组件<a class="headerlink" href="#navbar" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><span class="filename">components/navbar.tsx</span><pre><span></span><code>import { UserButton } from &quot;@clerk/nextjs&quot;;
+import MobileSidebar from &quot;./mobile-sidebar&quot;;
+
+const Navbar = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;MobileSidebar /&gt;
+      &lt;div className=&quot;flex justify-end mr-6 mt-6&quot;&gt;
+        &lt;UserButton afterSignOutUrl=&quot;/&quot; /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default Navbar;
+</code></pre></div>
+<p>把clerk库的<code>UserButton</code>组件放在最右端</p>
+<h2 id="mobile-sidebar">mobile-sidebar组件<a class="headerlink" href="#mobile-sidebar" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><span class="filename">components/mobile-sidebar.tsx</span><pre><span></span><code>import { Menu } from &quot;lucide-react&quot;;
+
+import { Sheet, SheetContent, SheetTrigger } from &quot;@/components/ui/sheet&quot;;
+import Sidebar from &quot;./sidebar&quot;;
+
+const MobileSidebar = () =&gt; {
+  return (
+    &lt;Sheet&gt;
+      &lt;SheetTrigger className=&quot;md:hidden&quot;&gt;
+        &lt;Menu /&gt;
+      &lt;/SheetTrigger&gt;
+      &lt;SheetContent side=&quot;left&quot; className=&quot;bg-gray-900&quot;&gt;
+        &lt;Sidebar /&gt;
+      &lt;/SheetContent&gt;
+    &lt;/Sheet&gt;
+  );
+};
+
+export default MobileSidebar;
+</code></pre></div>
+<p>使用了shadcn/ui的sheet组件，需要先安装</p>
+<p><code>npx shadcn-ui@latest add sheet</code></p>
+<p>详情请看<a href="https://ui.shadcn.com/docs/components/sheet">Sheet - shadcn/ui</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 14, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 14, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../03-%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 03 身份验证">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                03 身份验证
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/" class="md-footer__link md-footer__link--next" aria-label="下一页: 05 控制面板">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                05 控制面板
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Ean Yang
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/YQisme" target="_blank" rel="noopener" title="github主页" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://space.bilibili.com/244185393?spm_id_from=333.788.0.0" target="_blank" rel="noopener" title="b站主页" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://eanyang7.com" target="_blank" rel="noopener" title="个人主页" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1-96 0zm40 304v128c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9l-28.6 47.6c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l58.3 97c9.1 15.1 4.2 34.8-10.9 43.9s-34.8 4.2-43.9-10.9L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352h-16z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.prune", "navigation.top", "toc.follow", "header.autohide", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
