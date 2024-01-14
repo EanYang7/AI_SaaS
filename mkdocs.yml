@@ -85,9 +85,6 @@ plugins:
       separator: '[\s\u200b\-]'
   - git-revision-date-localized:
       enable_creation_date: true
-  - mkdocs-jupyter:
-      include_source: True
-      # ignore_h1_titles: True # 忽略一级标题(默认为False,会替换掉nav自定义的标题)
 
 markdown_extensions:
   - toc:
