@@ -80,6 +80,7 @@ extra:
 copyright: Copyright &copy; 2023 Ean Yang
 
 plugins:
+  - glightbox
   - search:
       separator: '[\s\u200b\-]'
   - git-revision-date-localized:

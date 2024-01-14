@@ -1,12 +1,3 @@
-# 05 控制面板
-
-## 效果展示
-
-![image-20240114154537926](./05-控制面板.assets/image-20240114154537926.png) 
-
-## 实现代码
-
-```tsx title="app/(dashboard)/(routes)/dashboard/page.tsx"
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -92,25 +83,3 @@ export default function HomePage() {
     </div>
   );
 }
-```
-
-这段代码是一个在 Next.js 框架下使用的 React 组件，用于创建一个交互式的主页，其中包含一系列的工具卡片（Card）。下面是对代码的主要部分的解释：
-
-1. **导入模块和组件**:
-   - 使用 `use client` 指示这是一个客户端组件。
-   - 从 `next/navigation` 导入 `useRouter` 钩子，用于处理路由跳转。
-   - 导入 `Card` 组件和一系列图标组件（如 `Code`, `ImageIcon` 等）。
-
-2. **工具数组 `tools`**:
-   - 这个数组包含了各种工具的信息，例如标签（label）、图标（icon）、颜色（color）、背景颜色（bgColor）和路由链接（href）。这些信息将用于生成卡片。
-
-3. **组件 `HomePage`**:
-   - 使用 `useRouter` 钩子获取路由实例。
-   - 返回一个包含标题、描述和一组卡片的 `div` 元素。每个卡片代表一个工具，点击时会跳转到对应的路由。
-
-4. **渲染工具卡片**:
-   - 使用 `map` 函数遍历 `tools` 数组，为每个工具生成一个 `Card` 组件。
-   - 每个卡片上点击事件触发 `router.push` 方法，实现页面跳转。
-   - 卡片布局包括一个图标和一个标签，以及一个指向右侧的箭头图标。
-
-这个组件展示了如何在 Next.js 应用中组合使用路由、组件和数组映射来创建动态的、交互式的用户界面。每个卡片上的点击事件触发页面跳转，提供了一个用户友好的导航体验。
